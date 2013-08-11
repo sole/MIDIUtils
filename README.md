@@ -11,8 +11,8 @@ Returns the MIDI note number corresponding to the note ```name```.
 
 
 ````javascript
-MIDIUtils.noteNameToNoteNumber( 'A-3' );    // returns 45
-MIDIUtils.noteNameToNoteNumber( 'C-4' );    // returns 48
+MIDIUtils.noteNameToNoteNumber( 'A-3' );    // returns 37
+MIDIUtils.noteNameToNoteNumber( 'C-4' );    // returns 40
 ````
 
 ## noteNumberToFrequency( number )
