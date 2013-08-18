@@ -1,6 +1,7 @@
 var MIDIUtils = (function() {
 
 	var noteMap = {};
+	var noteNumberMap = [];
 	var notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
 	
 	for(var i = 0; i < 127; i++) {
@@ -16,6 +17,7 @@ var MIDIUtils = (function() {
 		key += octave;
 
 		noteMap[key] = i + 1; // MIDI notes start at 1
+		noteNumberMap[i + 1] = key;
 
 	}
 
@@ -27,6 +29,10 @@ var MIDIUtils = (function() {
 
 		noteNumberToFrequency: function(note) {
 			return 440.0 * Math.pow(2, (note - 49.0) / 12.0);
+		},
+
+		noteNumberToName: function(note) {
+			return noteNumberMap[note];
 		}
 	};
 
@@ -36,3 +42,4 @@ try {
 	module.exports = MIDIUtils;
 } catch(e) {
 }
+

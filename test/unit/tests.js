@@ -51,3 +51,12 @@ test( "88 (C-8) is 4186.01", function() {
 	equal( Math.abs(MIDIUtils.noteNumberToFrequency( 88 ) - 4186.01) < 0.01, true );
 
 });
+
+module( 'note numbers to names' );
+
+test( "1 is A-0", function() {
+
+	equal( MIDIUtils.noteNumberToName( 1 ), 'A-0' );
+
+});
+

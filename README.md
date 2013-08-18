@@ -23,3 +23,10 @@ Returns the frequency represented by ```noteNumber```.
 MIDIUtils.noteNumberToFrequency( 49 ); // returns 440 Hz -- i.e. A-4
 ````
 
+## noteNumberToName( number )
+
+Returns the MIDI note name corresponding to the note ```number```.
+
+````javascript
+MIDIUtils.noteNumberToName( 49 ); // returns 'A-4'
+````
