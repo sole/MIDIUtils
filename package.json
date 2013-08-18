@@ -1,7 +1,7 @@
 {
     "name": "midiutils",
     "description": "A series of methods to work with MIDI",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "src/MIDIUtils.js",
     "homepage": "https://github.com/sole/MIDIUtils",
     "repository": {
