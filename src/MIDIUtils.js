@@ -3,12 +3,13 @@ var MIDIUtils = (function() {
 	var noteMap = {};
 	var noteNumberMap = [];
 	var notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
-	
+
+
 	for(var i = 0; i < 127; i++) {
 
-		var index = i + 9, // The first note is actually A-0 so we have to transpose up by 9 tones
-			key = notes[index % 12],
-			octave = (index / 12) | 0;
+		var index = i,
+            key = notes[index % 12],
+			octave = ((index / 12) | 0) - 1; // MIDI scale starts at octave = -1
 
 		if(key.length === 1) {
 			key = key + '-';
@@ -16,24 +17,35 @@ var MIDIUtils = (function() {
 
 		key += octave;
 
-		noteMap[key] = i + 1; // MIDI notes start at 1
-		noteNumberMap[i + 1] = key;
+		noteMap[key] = i;
+        noteNumberMap[i] = key;
 
 	}
 
 
+    function getBaseLog(value, base) {
+        return Math.log(value) / Math.log(base);
+    }
+
+
 	return {
+
 		noteNameToNoteNumber: function(name) {
 			return noteMap[name];
 		},
 
 		noteNumberToFrequency: function(note) {
-			return 440.0 * Math.pow(2, (note - 49.0) / 12.0);
+			return 440.0 * Math.pow(2, (note - 69.0) / 12.0);
 		},
 
 		noteNumberToName: function(note) {
 			return noteNumberMap[note];
+		},
+
+		frequencyToNoteNumber: function(f) {
+			return Math.round(12.0 * getBaseLog(f / 440.0, 2) + 69);
 		}
+
 	};
 
 })();
