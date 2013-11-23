@@ -11,8 +11,8 @@ Returns the MIDI note number corresponding to the note ```name```.
 
 
 ````javascript
-MIDIUtils.noteNameToNoteNumber( 'A-3' );    // returns 37
-MIDIUtils.noteNameToNoteNumber( 'C-4' );    // returns 40
+MIDIUtils.noteNameToNoteNumber( 'A-0' );    // returns 21
+MIDIUtils.noteNameToNoteNumber( 'C-4' );    // returns 60
 ````
 
 ## noteNumberToFrequency( number )
@@ -20,7 +20,7 @@ MIDIUtils.noteNameToNoteNumber( 'C-4' );    // returns 40
 Returns the frequency represented by ```noteNumber```.
 
 ````javascript
-MIDIUtils.noteNumberToFrequency( 49 ); // returns 440 Hz -- i.e. A-4
+MIDIUtils.noteNumberToFrequency( 69 ); // returns 440 Hz -- i.e. A-4
 ````
 
 ## noteNumberToName( number )
@@ -28,7 +28,7 @@ MIDIUtils.noteNumberToFrequency( 49 ); // returns 440 Hz -- i.e. A-4
 Returns the MIDI note name corresponding to the note ```number```.
 
 ````javascript
-MIDIUtils.noteNumberToName( 49 ); // returns 'A-4'
+MIDIUtils.noteNumberToName( 21 ); // returns 'A-0'
 ````
 
 ## frequencyToNoteNumber( frequency )
@@ -36,5 +36,5 @@ MIDIUtils.noteNumberToName( 49 ); // returns 'A-4'
 Returns the note number that corresponds to this frequency.
 
 ````javascript
-MIDIUtils.frequencyToNoteNumber( 440.000 ); // returns 49
+MIDIUtils.frequencyToNoteNumber( 440.000 ); // returns 69
 ````
