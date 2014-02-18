@@ -66,8 +66,6 @@ var MIDIUtils = (function() {
 				index_replace = (index + increment + notes.length) % notes.length;
 				octave_change = parseInt((index + increment + notes.length) / notes.length);
 
-				console.log([index_replace, octave_change]);
-
 				note[0] = notes[index_replace];
 				note[1] += (octave_change - 1);
 				return note.join('-');
