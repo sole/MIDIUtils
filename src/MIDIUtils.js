@@ -8,7 +8,7 @@ var MIDIUtils = (function() {
 	for(var i = 0; i < 127; i++) {
 
 		var index = i,
-            key = notes[index % 12],
+			key = notes[index % 12],
 			octave = ((index / 12) | 0) - 1; // MIDI scale starts at octave = -1
 
 		if(key.length === 1) {
@@ -18,14 +18,14 @@ var MIDIUtils = (function() {
 		key += octave;
 
 		noteMap[key] = i;
-        noteNumberMap[i] = key;
+		noteNumberMap[i] = key;
 
 	}
 
 
-    function getBaseLog(value, base) {
-        return Math.log(value) / Math.log(base);
-    }
+	function getBaseLog(value, base) {
+		return Math.log(value) / Math.log(base);
+	}
 
 
 	return {
