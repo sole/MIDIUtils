@@ -81,3 +81,19 @@ test( "440.000 is 69", function() {
 });
 
 
+
+test("Move A-0 1 note higher", function() {
+	equal(MIDIUtils.transpose('A-0', 1), 'A#-0');
+});
+
+test("Move B-1 five notes higher", function() {
+	equal(MIDIUtils.transpose('B-1', 5), 'E-2');
+});
+
+test("Move A#-1 note lower", function() {
+	equal(MIDIUtils.transpose('A#-1', -1), 'A-1');
+});
+
+test("Move D#-1 5 note lower", function() {
+	equal(MIDIUtils.transpose('D#-1', -5), 'A#-0');
+});

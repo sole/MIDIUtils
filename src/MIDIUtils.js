@@ -44,8 +44,36 @@ var MIDIUtils = (function() {
 
 		frequencyToNoteNumber: function(f) {
 			return Math.round(12.0 * getBaseLog(f / 440.0, 2) + 69);
-		}
+		},
 
+		'transpose':function(note, increment)
+		{
+			var
+				note = note.split('-'),
+				index, index_replace, octave_change;
+
+			note[0] = note[0].toUpperCase();
+			note[1] = parseInt(note[1]);
+
+			if (isNaN(note[1])) {
+				throw new Error('Note must be in format like "C-1"');
+			}
+
+			index = notes.indexOf(note[0]);
+
+			if (index >= 0) {
+
+				index_replace = (index + increment + notes.length) % notes.length;
+				octave_change = parseInt((index + increment + notes.length) / notes.length);
+
+				console.log([index_replace, octave_change]);
+
+				note[0] = notes[index_replace];
+				note[1] += (octave_change - 1);
+				return note.join('-');
+
+			} else throw new Error('Note ' + note[0] + ' was not found in the map');
+		}
 	};
 
 })();
@@ -54,4 +82,5 @@ try {
 	module.exports = MIDIUtils;
 } catch(e) {
 }
+
 
