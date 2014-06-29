@@ -61,3 +61,9 @@ Returns the note number that corresponds to this frequency.
 ````javascript
 MIDIUtils.frequencyToNoteNumber( 440.000 ); // returns 69
 ````
+
+## Getting involved
+
+If you want to get involved with the development of this library or want to contribute, make sure the code you add or change follows the same style as the existing code (whitespace, indenting, etc) and looks consistent with the rest.
+
+Also new features must also be accompanied by both documentation and examples, and new tests demonstrating the usage of the feature, and existing tests must not break.
