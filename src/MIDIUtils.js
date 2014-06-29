@@ -1,4 +1,4 @@
-var MIDIUtils = (function() {
+(function() {
 
 	var noteMap = {};
 	var noteNumberMap = [];
@@ -8,7 +8,7 @@ var MIDIUtils = (function() {
 	for(var i = 0; i < 127; i++) {
 
 		var index = i,
-            key = notes[index % 12],
+			key = notes[index % 12],
 			octave = ((index / 12) | 0) - 1; // MIDI scale starts at octave = -1
 
 		if(key.length === 1) {
@@ -18,17 +18,17 @@ var MIDIUtils = (function() {
 		key += octave;
 
 		noteMap[key] = i;
-        noteNumberMap[i] = key;
+		noteNumberMap[i] = key;
 
 	}
 
 
-    function getBaseLog(value, base) {
-        return Math.log(value) / Math.log(base);
-    }
+	function getBaseLog(value, base) {
+		return Math.log(value) / Math.log(base);
+	}
 
 
-	return {
+	var MIDIUtils = {
 
 		noteNameToNoteNumber: function(name) {
 			return noteMap[name];
@@ -48,10 +48,17 @@ var MIDIUtils = (function() {
 
 	};
 
-})();
 
-try {
-	module.exports = MIDIUtils;
-} catch(e) {
-}
+	// Make it compatible for require.js/AMD loader(s)
+	if(typeof define === 'function' && define.amd) {
+		define(function() { return MIDIUtils; });
+	} else if(typeof module !== 'undefined' && module.exports) {
+		// And for npm/node.js
+		module.exports = MIDIUtils;
+	} else {
+		this.MIDIUtils = MIDIUtils;
+	}
+
+
+}).call(this);
 
