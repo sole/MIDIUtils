@@ -2,6 +2,8 @@
 
 >Methods for dealing with MIDI data (note numbers, note names, frequencies, etc).
 
+[![Install with NPM](https://nodei.co/npm/midiutils.png?downloads=true&stars=true)](https://nodei.co/npm/midiutils/)
+
 ## Getting it
 
 ### Node/Browserify
